@@ -38,6 +38,7 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+;; (package-delete 'blacken)
                                         ;(package-initialize)
 
 (defvar prelude-user
@@ -52,19 +53,21 @@
 ;; Always load newest byte code
 (setq load-prefer-newer t)
 
+(message "[Prelude] Ignore defile Prelude's directory structure")
+(message "%s" load-file-name)
 ;; Define Prelude's directory structure
 (defvar prelude-dir (file-name-directory load-file-name)
-  "The root dir of the Emacs Prelude distribution.")
+  "root dir of the Emacs Prelude distribution.")
 (defvar prelude-core-dir (expand-file-name "core" prelude-dir)
   "The home of Prelude's core functionality.")
 (defvar prelude-modules-dir (expand-file-name  "modules" prelude-dir)
   "This directory houses all of the built-in Prelude modules.")
 (defvar prelude-personal-dir (expand-file-name "personal" prelude-dir)
-  "This directory is for your personal configuration.
+  "This directory is for your personal configuration")
 
-Users of Emacs Prelude are encouraged to keep their personal configuration
-changes in this directory.  All Emacs Lisp files there are loaded automatically
-by Prelude.")
+;; Users of Emacs Prelude are encouraged to keep their personal configuration
+;; changes in this directory.  All Emacs Lisp files there are loaded automatically
+;; by Prelude.
 (defvar prelude-personal-preload-dir (expand-file-name "preload" prelude-personal-dir)
   "This directory is for your personal configuration, that you want loaded before Prelude.")
 (defvar prelude-vendor-dir (expand-file-name "vendor" prelude-dir)
